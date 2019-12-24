@@ -10,12 +10,10 @@
           icon="menu"
           aria-label="Menu"
         />
-
         <q-toolbar-title>
-          Quasar App
+          Merge the news
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Merge the news v0.01</div>
       </q-toolbar>
     </q-header>
 
