@@ -24,8 +24,33 @@
       content-class="bg-grey-2"
     >
       <q-list>
-        <q-item-label header>Filtrar</q-item-label>
-        <q-item clickable>
+        <q-item-label header>
+          <q-icon name="settings_applications" style="color: #ccc; font-size: 1.6em;"/>
+          Opções
+        </q-item-label>
+        <q-item clickable tag="a" target="_blank" href="https://github.com/Vakihito/get-news">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Github</q-item-label>
+            <q-item-label caption>github.com/Vakihito/get-news</q-item-label>
+          </q-item-section>
+        </q-item>
+          <q-item clickable tag="a" href="http://localhost:8080/#/aki">
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Home</q-item-label>
+              <q-item-label caption>Página inicial</q-item-label>
+            </q-item-section>
+        </q-item>
+        <q-item-label header>
+          <q-icon name="filter_list" style="color: #ccc; font-size: 1.6em;"/>
+          Filtrar
+        </q-item-label>
+        <q-item clickable >
           <q-checkbox keep-color v-model="globo" label="Globo" color="primary" />
         </q-item>
         <q-item clickable>
@@ -39,7 +64,6 @@
         </q-item>
       </q-list>
     </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
