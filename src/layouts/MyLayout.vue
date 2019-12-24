@@ -25,50 +25,17 @@
     >
       <q-list>
         <q-item-label header>Filtrar</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://github.com/Vakihito/get-news">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/Vakihito/get-news</q-item-label>
-          </q-item-section>
+        <q-item clickable>
+          <q-checkbox keep-color v-model="globo" label="Globo" color="primary" />
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
+        <q-item clickable>
+          <q-checkbox keep-color v-model="uol" label="Uol" color="warning" />
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
+        <q-item clickable>
+          <q-checkbox keep-color v-model="terra" label="Terra" color="positive" />
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
+        <q-item clickable>
+          <q-checkbox keep-color v-model="folha" label="Folha de SP" color="negative" />
         </q-item>
       </q-list>
     </q-drawer>
@@ -85,6 +52,10 @@ export default {
 
   data () {
     return {
+      globo: true,
+      terra: true,
+      uol: true,
+      folha: true,
       leftDrawerOpen: false
     }
   }
