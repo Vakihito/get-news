@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
+    <q-header class="bg-primary">
+      <q-toolbar class="q-pa-sm">
         <q-btn
           flat
           dense
@@ -9,14 +9,13 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           icon="menu"
           aria-label="Menu"
+          style="font-size: 1.6em;"
         />
-        <q-toolbar-title>
+        <q-toolbar-title class="text-center text-h5" >
           Merge the news
         </q-toolbar-title>
-        <div>Merge the news v0.01</div>
       </q-toolbar>
     </q-header>
-
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -80,7 +79,8 @@ export default {
       terra: true,
       uol: true,
       folha: true,
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      searchStr: ''
     }
   }
 }
