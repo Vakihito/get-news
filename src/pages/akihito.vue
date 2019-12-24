@@ -1,5 +1,42 @@
 <template>
     <q-page>
+        <!-- principal news -->
+        <div class="container">
+            <div class="flex q-mt-md q-mx-xl justify-center content-start">
+                <div style="width:25%; height:28rem" class="q-mt-lg">
+                    <div class="full-height full-width">
+                        <q-img class="full-height" src="https://cdn.quasar.dev/img/parallax2.jpg">
+                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="primary">globo</q-chip>
+                            <div class="text-subtitle3 absolute-bottom text-center">clean description</div>
+                        </q-img>
+                    </div>
+                </div>
+                <div style="width:25%; height:28rem" class="q-mt-lg">
+                    <div class="full-height full-width">
+                        <q-img class="full-height" src="https://cdn.quasar.dev/img/parallax2.jpg">
+                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="warning">uol</q-chip>
+                            <div class="text-subtitle3 absolute-bottom text-center">clean description</div>
+                        </q-img>
+                    </div>
+                </div>
+                <div style="width:25%; height:28rem" class="q-mt-lg">
+                    <div class="full-height full-width">
+                        <q-img class="full-height" src="https://cdn.quasar.dev/img/parallax2.jpg">
+                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="positive">terra</q-chip>
+                            <div class="text-subtitle3 absolute-bottom text-center">clean description</div>
+                        </q-img>
+                    </div>
+                </div>
+                <div style="width:25%; height:28rem" class="q-mt-lg">
+                    <div class="full-height full-width">
+                        <q-img class="full-height" src="https://cdn.quasar.dev/img/parallax2.jpg">
+                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="positive">terra</q-chip>
+                            <div class="text-subtitle3 absolute-bottom text-center">clean description</div>
+                        </q-img>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- all the other news  -->
         <div class="container wrap">
             <div class="flex q-mt-xl q-mx-xl justify-between content-start">
