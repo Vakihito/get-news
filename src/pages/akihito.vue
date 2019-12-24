@@ -30,7 +30,7 @@
                 <div style="width:25%; height:28rem" class="q-mt-lg">
                     <div class="full-height full-width">
                         <q-img class="full-height" src="https://cdn.quasar.dev/img/parallax2.jpg">
-                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="positive">terra</q-chip>
+                            <q-chip square class="q-mt-md q-ml-sm"  icon="alarm" color="negative">Folha de SP</q-chip>
                             <div class="text-subtitle3 absolute-bottom text-center">clean description</div>
                         </q-img>
                     </div>
