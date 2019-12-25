@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-blue-grey-10">
-      <q-toolbar class="q-pa-sm">
+    <q-header class="bg-blue-grey-10 no-wrap row">
+      <q-toolbar class="q-pa-sm col-10">
         <q-btn
           flat
           dense
@@ -14,6 +14,13 @@
         <q-toolbar-title class="text-center text-h5" >
           Merge the news
         </q-toolbar-title>
+      </q-toolbar>
+      <q-toolbar class="col-2">
+        <q-input outlined bg-color="white" v-model="searchModel" label="Label">
+          <template v-slot:prepend>
+            <q-icon name="event" />
+          </template>
+        </q-input>
       </q-toolbar>
     </q-header>
     <q-drawer
@@ -80,7 +87,7 @@ export default {
       uol: true,
       folha: true,
       leftDrawerOpen: false,
-      searchStr: ''
+      searchModel: ''
     }
   }
 }
