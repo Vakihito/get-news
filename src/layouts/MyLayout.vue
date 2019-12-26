@@ -14,7 +14,7 @@
         <q-toolbar-title class=" absolute-center text-h5" >
           Merge the news
         </q-toolbar-title>
-        <q-input style="width:15rem" class="absolute-right" outlined bg-color="white" v-model="searchModel" label="Search">
+        <q-input style="width:17rem" class="absolute-right q-pr-md" outlined bg-color="white" v-model="searchModel" label="Search">
           <template v-slot:prepend>
             <q-icon name="search" />
           </template>
