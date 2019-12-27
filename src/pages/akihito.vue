@@ -85,7 +85,18 @@
     </q-page>
 </template>
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      globo: true,
+      terra: true,
+      uol: true,
+      folha: true,
+      leftDrawerOpen: false,
+      searchModel: ''
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 </style>

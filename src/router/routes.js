@@ -4,9 +4,16 @@ const routes = [
     path: '/',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
+      { path: '', component: () => import('pages/akihito.vue') },
       { path: 'aki', component: () => import('pages/akihito.vue') },
       { path: 'news', component: () => import('pages/news.vue') }
+    ]
+  },
+  {
+    path: '/getData',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/news.vue') }
     ]
   }
 ]

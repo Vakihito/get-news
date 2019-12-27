@@ -54,8 +54,8 @@
           <q-icon name="filter_list" style="color: #ccc; font-size: 1.6em;"/>
           Filtrar
         </q-item-label>
-        <q-item clickable >
-          <q-checkbox keep-color v-model="globo" label="Globo" color="primary" />
+        <q-item clickable @click="globoClkBox">
+          <q-checkbox @click="globoClkBox" keep-color v-model="globo" label="Globo" color="primary" />
         </q-item>
         <q-item clickable>
           <q-checkbox keep-color v-model="uol" label="Uol" color="warning" />
@@ -87,6 +87,8 @@ export default {
       leftDrawerOpen: false,
       searchModel: ''
     }
+  },
+  methods: {
   }
 }
 </script>
