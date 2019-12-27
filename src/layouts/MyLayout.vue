@@ -55,16 +55,16 @@
           Filtrar
         </q-item-label>
         <q-item clickable >
-          <q-checkbox keep-color v-model="globo" label="Globo" color="primary" />
+          <q-checkbox keep-color v-model="globo_checkbox" label="Globo" color="primary" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="reddit" label="reddit" color="warning" />
+          <q-checkbox keep-color v-model="reddit_checkbox" label="reddit" color="warning" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="terra" label="Terra" color="positive" />
+          <q-checkbox keep-color v-model="terra_checkbox" label="Terra" color="positive" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="folha" label="Folha de SP" color="negative" />
+          <q-checkbox keep-color v-model="folha_checkbox" label="Folha de SP" color="negative" />
         </q-item>
       </q-list>
     </q-drawer>
@@ -80,10 +80,10 @@ export default {
 
   data () {
     return {
-      globo: true,
-      terra: true,
-      reddit: true,
-      folha: true,
+      globo_checkbox: true,
+      terra_checkbox: true,
+      reddit_checkbox: true,
+      folha_checkbox: true,
       leftDrawerOpen: false,
       searchModel: ''
     }
