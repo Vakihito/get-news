@@ -93,17 +93,23 @@ export default {
       reddit: true,
       folha: true,
       leftDrawerOpen: false,
-      searchModel: ''
+      searchModel: '',
+      reddit_news: [],
+      globo_news: [],
+      terra_news: [],
+      folha_news: []
     }
   },
   created () {
-    this.$axios.get('https://www.reddit.com/r/news.json?raw_json=1')
-      .then(response => {
-        console.log(response.data.data.children)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    axios.all([
+      axios.get('https://api.github.com/users/mapbox'),
+      axios.get('https://api.github.com/users/phantomjs')
+    ])
+    .then(responseArr => {
+      //this will be executed only when all requests are complete
+      console.log('Date created: ', responseArr[0].data.created_at);
+      console.log('Date created: ', responseArr[1].data.created_at);
+    });
   }
 }
 </script>
