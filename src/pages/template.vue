@@ -40,17 +40,43 @@
         <!-- all the other news  -->
         <div class="container wrap">
             <div class="flex q-mt-xl q-mx-xl justify-between content-start">
-                <div v-for="times_new in times_news" :key="times_new.id" style="width:24%; height:13rem" class="q-mt-lg">
-                    <q-card v-if="times_new.multimedia != null && times_new.multimedia[3] != null" class="my-card full-height full-width">
-                        <q-img class="full-height full-width" :src="times_new.multimedia[3].url">
+                <div style="width:24%; height:13rem" class="q-mt-lg">
+                    <q-card class="my-card full-height full-width">
+                        <q-img class="full-height" src="../assets/Images/1.jpg">
                             <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">times</q-chip>
-                            <div style="max-height:30%" class="text-weight-bold text-subtitle3 absolute-bottom">{{times_new.title}}</div>
+                            <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
                         </q-img>
                     </q-card>
-                    <q-card v-else class="my-card full-height full-width">
-                        <q-img class="full-height full-width" src="../assets/Images/meta-logo.png">
-                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">times</q-chip>
-                            <div style="max-height:30%" class="text-weight-bold text-subtitle3 absolute-bottom">{{times_new.title}}</div>
+                </div>
+                <div style="width:24%; height:13rem" class="q-mt-lg">
+                    <q-card class="my-card full-height full-width">
+                        <q-img class="full-height" src="../assets/Images/3.jpg">
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">reddit</q-chip>
+                            <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
+                        </q-img>
+                    </q-card>
+                </div>
+                <div style="width:24%; height:13rem" class="q-mt-lg">
+                    <q-card class="my-card full-height full-width">
+                        <q-img class="full-height" src="../assets/Images/2.jpg">
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">terra</q-chip>
+                            <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
+                        </q-img>
+                    </q-card>
+                </div>
+                <div style="width:24%; height:13rem" class="q-mt-lg">
+                    <q-card class="my-card full-height full-width">
+                        <q-img class="full-height" src="../assets/Images/4.jpg">
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Folha de SP</q-chip>
+                            <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
+                        </q-img>
+                    </q-card>
+                </div>
+                <div style="width:24%; height:13rem" class="q-mt-lg">
+                    <q-card class="my-card full-height full-width">
+                        <q-img class="full-height" src="../assets/Images/1.jpg">
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Folha de SP</q-chip>
+                            <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
                         </q-img>
                     </q-card>
                 </div>
@@ -77,18 +103,13 @@ export default {
   created () {
     this.$axios.all([
       // getting the times json of the news
-      this.$axios.get('https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=wEjtZ1kh7Fnh6bNd967TKsYcLEBSVHj4', 'jsonp'),
+      this.$axios.get('https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=wEjtZ1kh7Fnh6bNd967TKsYcLEBSVHj4'),
       this.$axios.get('https://api.github.com/users/phantomjs', 'jsonp')
     ])
       .then(responseArr => {
-        this.times_news = responseArr[0].data.results
-        for (let idx = 0; idx < this.times_news.length; idx++) {
-          if (this.times_news[idx].multimedia && this.times_news[idx].multimedia[3]) {
-            this.times_news[idx].multimedia[3].url = this.times_news[idx].multimedia[3].url.replace('articleInline', 'superJumbo')
-            console.log(this.times_news[idx].multimedia[3].url)
-          }
-        }
-        console.log(this.times_news)
+        this.times_news = responseArr[0].data
+        console.log('Times: ', this.times_news)
+        console.log('Date created: ', responseArr[1].data.created_at)
       })
   }
 }
