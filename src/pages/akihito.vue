@@ -2,8 +2,8 @@
     <q-page>
         <!-- principal news -->
         <div class="container">
-            <div class="flex q-mt-md q-mx-xl justify-center content-start">
-                <div style="width:25%; height:32rem " class="q-mt-lg">
+            <div class="row flex q-mt-md q-mx-xl justify-center content-start">
+                <div style="width:25%; height:32rem " class="col-3 q-mt-lg">
                     <div class="full-height full-width">
                         <q-img class="full-height" src="../assets/Images/1.jpg">
                             <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium" style="bottom: 17%;"  icon="public" color="primary">globo</q-chip>
@@ -11,15 +11,15 @@
                         </q-img>
                     </div>
                 </div>
-                <div style="width:25%; height:32rem " class="q-mt-lg">
+                <div style="width:25%; height:32rem " class="col-3 q-mt-lg">
                     <div class="full-height full-width">
                         <q-img class="full-height" src="../assets/Images/2.jpg">
-                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium" style="bottom: 17%;"  icon="public" color="warning">uol</q-chip>
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium" style="bottom: 17%;"  icon="public" color="warning">reddit</q-chip>
                             <div class="text-weight-bold text-subtitle1 absolute-bottom" style=" max-height: 16%;">Uma pequena descrição a cerca da notícia principal de uma site</div>
                         </q-img>
                     </div>
                 </div>
-                <div style="width:25%; height:32rem " class="q-mt-lg">
+                <div style="width:25%; height:32rem " class="col-3 q-mt-lg">
                     <div class="full-height full-width">
                         <q-img class="full-height" src="../assets/Images/3.jpg">
                             <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium" style="bottom: 17%;"  icon="public" color="positive">terra</q-chip>
@@ -27,7 +27,7 @@
                         </q-img>
                     </div>
                 </div>
-                <div style="width:25%; height:32rem " class="q-mt-lg">
+                <div style="width:25%; height:32rem " class="col-3 q-mt-lg">
                     <div class="full-height full-width">
                         <q-img class="full-height" src="../assets/Images/4.jpg">
                             <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium" style="bottom: 17%;"  icon="public" color="negative">Folha de SP</q-chip>
@@ -51,7 +51,7 @@
                 <div style="width:24%; height:13rem" class="q-mt-lg">
                     <q-card class="my-card full-height full-width">
                         <q-img class="full-height" src="../assets/Images/3.jpg">
-                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">uol</q-chip>
+                            <q-chip square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">reddit</q-chip>
                             <div style="max-height:30%" class="text-weight-bold text-subtitle2 absolute-bottom">Uma pequena descrição a cerca da notícia secundaria de uma site</div>
                         </q-img>
                     </q-card>
@@ -90,11 +90,20 @@ export default {
     return {
       globo: true,
       terra: true,
-      uol: true,
+      reddit: true,
       folha: true,
       leftDrawerOpen: false,
       searchModel: ''
     }
+  },
+  created () {
+    this.$axios.get('https://www.reddit.com/r/news.json?raw_json=1')
+      .then(response => {
+        console.log(response.data.data.children)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
 </script>

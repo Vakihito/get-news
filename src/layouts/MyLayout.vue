@@ -54,11 +54,11 @@
           <q-icon name="filter_list" style="color: #ccc; font-size: 1.6em;"/>
           Filtrar
         </q-item-label>
-        <q-item clickable @click="globoClkBox">
-          <q-checkbox @click="globoClkBox" keep-color v-model="globo" label="Globo" color="primary" />
+        <q-item clickable >
+          <q-checkbox keep-color v-model="globo" label="Globo" color="primary" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="uol" label="Uol" color="warning" />
+          <q-checkbox keep-color v-model="reddit" label="reddit" color="warning" />
         </q-item>
         <q-item clickable>
           <q-checkbox keep-color v-model="terra" label="Terra" color="positive" />
@@ -82,13 +82,11 @@ export default {
     return {
       globo: true,
       terra: true,
-      uol: true,
+      reddit: true,
       folha: true,
       leftDrawerOpen: false,
       searchModel: ''
     }
-  },
-  methods: {
   }
 }
 </script>
