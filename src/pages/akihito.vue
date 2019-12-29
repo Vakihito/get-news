@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row flex q-mt-md q-mx-xl justify-center content-start">
                 <div v-for="top_new in most_relevant_news" v-bind:key="top_new.id" style="width:25%; height:32rem " class="col-3 q-mt-lg">
-                    <div class="full-height full-width">
+                    <div v-on:click="openUrl(top_new.url)" class="full-height full-width">
                         <q-img class="full-height" :src="top_new.urlToImage">
                             <q-chip v-if="top_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="primary">Times</q-chip>
                             <q-chip v-if="top_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="positive">Cnn</q-chip>
@@ -21,16 +21,16 @@
         <div class="container wrap">
             <div class="flex q-mt-xl q-mx-xl justify-between content-start">
                 <div v-for="all_new in all_news" :key="all_new.id" style="width:24%; height:13rem" class="q-mt-lg">
-                    <q-card v-if="all_new.urlToImage != null" class="my-card full-height full-width">
-                        <q-img class="full-height full-width" :src="all_new.urlToImage">
-                            <q-chip v-if="all_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Times</q-chip>
-                            <q-chip v-if="all_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">Cnn</q-chip>
-                            <q-chip v-if="all_new.source.name == 'Bbc.com'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">Bbc</q-chip>
-                            <q-chip v-if="all_new.source.id == 'the-wall-street-journal'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Wall street</q-chip>
-                            <div style="max-height:28%; min-height:28%" class="text-weight-bold text-subtitle2 absolute-bottom">{{all_new.title}}</div>
-                        </q-img>
+                    <q-card v-on:click="openUrl(all_new.url)" target="_blank" v-if="all_new.urlToImage != null" class="my-card full-height full-width">
+                      <q-img class="full-height full-width" :src="all_new.urlToImage">
+                        <q-chip v-if="all_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Times</q-chip>
+                        <q-chip v-if="all_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">Cnn</q-chip>
+                        <q-chip v-if="all_new.source.name == 'Bbc.com'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">Bbc</q-chip>
+                        <q-chip v-if="all_new.source.id == 'the-wall-street-journal'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Wall street</q-chip>
+                        <div style="max-height:28%; min-height:28%" class="text-weight-bold text-subtitle2 absolute-bottom">{{all_new.title}}</div>
+                       </q-img>
                     </q-card>
-                    <q-card v-else class="my-card full-height full-width">
+                    <q-card v-on:click="openUrl(all_new.url)" v-else class="my-card full-height full-width">
                         <q-img class="full-height full-width" src="../assets/Images/meta-logo.png">
                             <q-chip v-if="all_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Times</q-chip>
                             <q-chip v-if="all_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">Cnn</q-chip>
@@ -77,8 +77,13 @@ export default {
         for (let idx = 0; idx < 4; idx++) {
           this.most_relevant_news.push(responseArr[3].data.articles[idx])
         }
-        console.log(this.most_relevant_news)
+        console.log(this.all_news)
       })
+  },
+  methods: {
+    openUrl (url) {
+      window.open(url, '_blank')
+    }
   }
 }
 </script>
