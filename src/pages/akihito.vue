@@ -1,22 +1,19 @@
 <template>
     <q-page>
         <!-- principal news -->
-        <div class="container">
-            <div class="row flex q-mt-md q-mx-xl justify-center content-start">
-                <div v-for="top_new in most_relevant_news" v-bind:key="top_new.id" style="width:25%; height:32rem " class="col-3 q-mt-lg">
-                    <div v-on:click="openUrl(top_new.url)" class="full-height full-width">
-                        <q-img class="full-height" :src="top_new.urlToImage">
-                            <q-chip v-if="top_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="primary">Times</q-chip>
-                            <q-chip v-if="top_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="positive">Cnn</q-chip>
-                            <q-chip v-if="top_new.source.name == 'Bbc.com'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="warning">Bbc</q-chip>
-                            <q-chip v-if="top_new.source.id == 'the-wall-street-journal'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 20%;" icon="public" color="negative">Wall street</q-chip>
-                            <div class="text-weight-bold text-subtitle1 absolute-bottom" style=" max-height:19%; min-height:19%">{{top_new.title}}</div>
-                        </q-img>
-                    </div>
-                </div>
-            </div>
+        <div class="q-mt-lg q-mx-xl">
+          <q-carousel style="height:35rem" animated v-model="slide" arrows infinite autoplay>
+            <q-carousel-slide v-for="top_new in most_relevant_news" v-bind:key="top_new.id" :name="most_relevant_news.indexOf(top_new)" :img-src="top_new.urlToImage" v-on:click="openUrl(top_new.url)">
+              <div class="absolute-bottom">
+                  <q-chip v-if="top_new.source.id == 'the-new-york-times'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="primary">Times</q-chip>
+                  <q-chip v-if="top_new.source.id == 'cnn'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="positive">Cnn</q-chip>
+                  <q-chip v-if="top_new.source.name == 'Bbc.com'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="warning">Bbc</q-chip>
+                  <q-chip v-if="top_new.source.id == 'the-wall-street-journal'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="negative">Wall street</q-chip>
+                <div class="custom-caption text-h4 white">{{top_new.title}}</div>
+              </div>
+            </q-carousel-slide>
+          </q-carousel>
         </div>
-
         <!-- all the other news  -->
         <div class="container wrap">
             <div class="flex q-mt-xl q-mx-xl justify-between content-start">
@@ -55,7 +52,8 @@ export default {
       leftDrawerOpen: false,
       searchModel: '',
       all_news: [],
-      most_relevant_news: []
+      most_relevant_news: [],
+      slide: 1
     }
   },
   created () {
@@ -88,4 +86,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .custom-caption{
+    text-align: center;
+    padding: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+  }
 </style>

@@ -42,7 +42,7 @@ module.exports = function (ctx) {
       //            (not treeshaking Quasar; biggest bundle size; convenient)
       all: 'auto',
 
-      components: ['QChip', 'QCheckbox', 'QInput'],
+      components: ['QChip', 'QCheckbox', 'QInput', 'QCarousel', 'QCarouselControl', 'QCarouselSlide', 'QSlideItem'],
       directives: [],
 
       // Quasar plugins
