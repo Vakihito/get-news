@@ -5,7 +5,7 @@
           <q-carousel style="height:35rem" animated v-model="slide" arrows infinite autoplay>
             <q-carousel-slide v-for="top_new in most_relevant_news" v-bind:key="top_new.id" :name="most_relevant_news.indexOf(top_new)" :img-src="top_new.urlToImage" v-on:click="openUrl(top_new.url)">
               <div class="absolute-bottom">
-                  <q-chip v-if="top_new.source.id == 'the-new-york-times'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="primary">Times</q-chip>
+                  <q-chip v-if="top_new.source.id == 'usa-today'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="primary">Usa Today</q-chip>
                   <q-chip v-if="top_new.source.id == 'cnn'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="positive">Cnn</q-chip>
                   <q-chip v-if="top_new.source.name == 'Bbc.com'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="warning">Bbc</q-chip>
                   <q-chip v-if="top_new.source.id == 'the-wall-street-journal'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="negative">Wall street</q-chip>
@@ -20,7 +20,7 @@
                 <div v-for="all_new in all_news" :key="all_new.id" style="width:24%; height:13rem" class="q-mt-lg">
                     <q-card v-on:click="openUrl(all_new.url)" target="_blank" v-if="all_new.urlToImage != null" class="my-card full-height full-width">
                       <q-img class="full-height full-width" :src="all_new.urlToImage">
-                        <q-chip v-if="all_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Times</q-chip>
+                        <q-chip v-if="all_new.source.id == 'usa-today'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Usa Today</q-chip>
                         <q-chip v-if="all_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">Cnn</q-chip>
                         <q-chip v-if="all_new.source.name == 'Bbc.com'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">Bbc</q-chip>
                         <q-chip v-if="all_new.source.id == 'the-wall-street-journal'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Wall street</q-chip>
@@ -29,7 +29,7 @@
                     </q-card>
                     <q-card v-on:click="openUrl(all_new.url)" v-else class="my-card full-height full-width">
                         <q-img class="full-height full-width" src="../assets/Images/meta-logo.png">
-                            <q-chip v-if="all_new.source.id == 'the-new-york-times'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Times</q-chip>
+                            <q-chip v-if="all_new.source.id == 'usa-today'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary">Usa Today</q-chip>
                             <q-chip v-if="all_new.source.id == 'cnn'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="positive">Cnn</q-chip>
                             <q-chip v-if="all_new.source.name == 'Bbc.com'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="warning">Bbc</q-chip>
                             <q-chip v-if="all_new.source.id == 'the-wall-street-journal'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="negative">Wall street</q-chip>
@@ -54,7 +54,8 @@ export default {
   },
   created () {
     this.$axios.all([
-      // getting the times json of the news
+      // getting the Usa Today json of the news
+      this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=usatoday.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?sortBy=popularity&language=en&domains=cnn.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=bbc.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=wsj.com&apiKey=5415d503418f418697784db93216532d'),
@@ -68,7 +69,7 @@ export default {
           this.all_news.push(responseArr[3].data.articles[idx])
         }
         for (let idx = 0; idx < 4; idx++) {
-          this.most_relevant_news.push(responseArr[3].data.articles[idx])
+          this.most_relevant_news.push(responseArr[4].data.articles[idx])
         }
         console.log(this.all_news)
       })
