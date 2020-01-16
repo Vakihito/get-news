@@ -41,13 +41,13 @@
             <q-item-label caption>github.com/Vakihito/get-news</q-item-label>
           </q-item-section>
         </q-item>
-          <q-item clickable tag="a" href="http://localhost:8080/#/aki">
+          <q-item clickable tag="a" href="https://newsapi.org/">
             <q-item-section avatar>
               <q-icon name="home" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Home</q-item-label>
-              <q-item-label caption>Página inicial</q-item-label>
+              <q-item-label>News Api</q-item-label>
+              <q-item-label caption>Api used to get the news</q-item-label>
             </q-item-section>
         </q-item>
         <q-item-label header>

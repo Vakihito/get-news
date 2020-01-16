@@ -71,7 +71,6 @@ export default {
         for (let idx = 0; idx < 4; idx++) {
           this.most_relevant_news.push(responseArr[4].data.articles[idx])
         }
-        console.log(responseArr[4].data)
       })
   },
   methods: {
