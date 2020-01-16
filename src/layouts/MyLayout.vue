@@ -41,7 +41,7 @@
             <q-item-label caption>github.com/Vakihito/get-news</q-item-label>
           </q-item-section>
         </q-item>
-          <q-item clickable tag="a" href="https://newsapi.org/">
+          <q-item clickable tag="a" target="_blank" href="https://newsapi.org/">
             <q-item-section avatar>
               <q-icon name="home" />
             </q-item-section>
@@ -54,17 +54,17 @@
           <q-icon name="filter_list" style="color: #ccc; font-size: 1.6em;"/>
           Filtrar
         </q-item-label>
-        <q-item clickable >
-          <q-checkbox keep-color v-model="globo_checkbox" label="Globo" color="primary" />
+        <q-item clickable>
+          <q-checkbox @click.native="change_checkbox(0)" keep-color v-model="checkbox[0]" label="Usa Today" color="primary" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="reddit_checkbox" label="reddit" color="warning" />
+          <q-checkbox @click.native="change_checkbox(1)" keep-color v-model="checkbox[1]" label="Cnn" color="positive" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="terra_checkbox" label="Terra" color="positive" />
+          <q-checkbox @click.native="change_checkbox(2)" keep-color v-model="checkbox[2]" label="Bbc" color="warning" />
         </q-item>
         <q-item clickable>
-          <q-checkbox keep-color v-model="folha_checkbox" label="Folha de SP" color="negative" />
+          <q-checkbox @click.native="change_checkbox(3)" keep-color v-model="checkbox[3]" label="Wall Street" color="negative" />
         </q-item>
       </q-list>
     </q-drawer>
@@ -77,15 +77,16 @@
 <script>
 export default {
   name: 'MyLayout',
-
   data () {
     return {
-      globo_checkbox: true,
-      terra_checkbox: true,
-      reddit_checkbox: true,
-      folha_checkbox: true,
+      checkbox: [true, true, true, true],
       leftDrawerOpen: false,
       searchModel: ''
+    }
+  },
+  methods: {
+    change_checkbox (number) {
+      console.log(this.checkbox[number])
     }
   }
 }
