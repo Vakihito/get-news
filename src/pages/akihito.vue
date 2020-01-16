@@ -64,10 +64,9 @@ export default {
     ])
       .then(responseArr => {
         for (let idx = 0; idx < 20; idx++) {
-          this.all_news.push(responseArr[0].data.articles[idx])
-          this.all_news.push(responseArr[1].data.articles[idx])
-          this.all_news.push(responseArr[2].data.articles[idx])
-          this.all_news.push(responseArr[3].data.articles[idx])
+          for (let i = 0; i < 4; i++) {
+            this.all_news.push(responseArr[i].data.articles[idx])
+          }
         }
         for (let idx = 0; idx < 4; idx++) {
           this.most_relevant_news.push(responseArr[4].data.articles[idx])
