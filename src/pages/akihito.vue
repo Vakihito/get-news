@@ -45,10 +45,6 @@
 export default {
   data () {
     return {
-      times_checkbox: true,
-      bbc: true,
-      cnn: true,
-      wsj: true,
       leftDrawerOpen: false,
       searchModel: '',
       all_news: [],
@@ -59,7 +55,6 @@ export default {
   created () {
     this.$axios.all([
       // getting the times json of the news
-      this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=nytimes.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?sortBy=popularity&language=en&domains=cnn.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=bbc.com&apiKey=5415d503418f418697784db93216532d'),
       this.$axios.get('https://newsapi.org/v2/everything?language=en&domains=wsj.com&apiKey=5415d503418f418697784db93216532d'),
