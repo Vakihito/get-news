@@ -9,7 +9,7 @@
                   <q-chip v-if="top_new.source.id == 'cnn'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="positive">Cnn</q-chip>
                   <q-chip v-if="top_new.source.name == 'Bbc.com'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="warning">Bbc</q-chip>
                   <q-chip v-if="top_new.source.id == 'the-wall-street-journal'" square size="xl" class="q-mb-md q-ml-md text-weight-medium"  icon="public" text-color="white" color="negative">Wall street</q-chip>
-                  <q-chip v-if="top_new.source.id != 'the-wall-street-journal' && top_new.source.name != 'Bbc.com' && top_new.source.id != 'cnn' && top_new.source.id != 'usa-today'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="primary" text-color="white">{{top_new.source.name}}</q-chip>
+                  <q-chip v-if="top_new.source.id != 'the-wall-street-journal' && top_new.source.name != 'Bbc.com' && top_new.source.id != 'cnn' && top_new.source.id != 'usa-today'" square size="lg" class="q-mt-md q-ml-sm text-weight-medium"  style="bottom: 31%;" icon="public" color="teal" text-color="white">{{top_new.source.name}}</q-chip>
                 <div class="custom-caption white" style="font-size:1.7rem">{{top_new.title}}</div>
               </div>
             </q-carousel-slide>
@@ -68,7 +68,7 @@ export default {
             this.all_news.push(responseArr[i].data.articles[idx])
           }
         }
-        for (let idx = 0; idx < 4; idx++) {
+        for (let idx = 0; idx < 5; idx++) {
           this.most_relevant_news.push(responseArr[4].data.articles[idx])
         }
       })
