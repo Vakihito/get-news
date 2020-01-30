@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   name: 'MyLayout',
   data () {
@@ -85,8 +86,12 @@ export default {
     }
   },
   methods: {
-    change_checkbox (number) {
-      console.log(this.checkbox[number])
+    change_checkbox () {
+      Vue.prototype.$ck = this.checkbox
+      console.log(this.$ck)
+    },
+    search () {
+      Vue.prototype.$search = this.searchModel
     }
   }
 }
