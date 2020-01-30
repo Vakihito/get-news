@@ -16,6 +16,8 @@
           </q-carousel>
         </div>
         <!-- all the other news  -->
+        <h2>{{checks}}</h2>
+        <h3>{{search.string}}</h3>
         <div class="container wrap">
             <div class="flex q-mt-xl q-mx-xl justify-between content-start">
                 <div v-for="all_new in all_news" :key="all_new.id" style="width:24%; height:13rem" class="q-mt-lg">

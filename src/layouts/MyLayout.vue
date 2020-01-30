@@ -14,7 +14,7 @@
         <q-toolbar-title class=" absolute-center text-h5" >
           Merge the news
         </q-toolbar-title>
-        <q-input style="width:17rem" class="absolute-right q-pr-md" outlined bg-color="white" v-model="searchModel" label="Search" @keyup.enter="search()">
+        <q-input style="width:17rem" class="absolute-right q-pr-md" outlined bg-color="white" v-model="searchModel.string" label="Search" @keyup.enter="search()">
           <template v-slot:prepend>
             <q-icon name="search" />
           </template>
@@ -82,18 +82,22 @@ export default {
     return {
       checkbox: [true, true, true, true],
       leftDrawerOpen: false,
-      searchModel: ''
+      searchModel: { string: '', source: '' }
     }
   },
-  methods: {
-    change_checkbox () {
-      Vue.prototype.$ck = this.checkbox
-      console.log(this.$ck)
-    },
-    search () {
-      Vue.prototype.$search = this.searchModel
-      console.log(this.$search)
-    }
+  created () {
+    Vue.prototype.$ck = this.checkbox
+    Vue.prototype.$search = this.searchModel
   }
+  // methods: {
+  //   change_checkbox () {
+  //     this.$ck = this.checkbox
+  //     console.log(this.$ck)
+  //   },
+  //   search () {
+  //     this.$search = this.searchModel
+  //     console.log(this.$search)
+  //   }
+  // }
 }
 </script>
