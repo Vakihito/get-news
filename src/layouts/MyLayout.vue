@@ -14,7 +14,7 @@
         <q-toolbar-title class=" absolute-center text-h5" >
           Merge the news
         </q-toolbar-title>
-        <q-input style="width:17rem" class="absolute-right q-pr-md" outlined bg-color="white" v-model="searchModel" label="Search">
+        <q-input style="width:17rem" class="absolute-right q-pr-md" outlined bg-color="white" v-model="searchModel" label="Search" @keyup.enter="search()">
           <template v-slot:prepend>
             <q-icon name="search" />
           </template>
@@ -55,16 +55,16 @@
           Filtrar
         </q-item-label>
         <q-item clickable>
-          <q-checkbox @click.native="change_checkbox(0)" keep-color v-model="checkbox[0]" label="Usa Today" color="primary" />
+          <q-checkbox @click.native="change_checkbox()" keep-color v-model="checkbox[0]" label="Usa Today" color="primary" />
         </q-item>
         <q-item clickable>
-          <q-checkbox @click.native="change_checkbox(1)" keep-color v-model="checkbox[1]" label="Cnn" color="positive" />
+          <q-checkbox @click.native="change_checkbox()" keep-color v-model="checkbox[1]" label="Cnn" color="positive" />
         </q-item>
         <q-item clickable>
-          <q-checkbox @click.native="change_checkbox(2)" keep-color v-model="checkbox[2]" label="Bbc" color="warning" />
+          <q-checkbox @click.native="change_checkbox()" keep-color v-model="checkbox[2]" label="Bbc" color="warning" />
         </q-item>
         <q-item clickable>
-          <q-checkbox @click.native="change_checkbox(3)" keep-color v-model="checkbox[3]" label="Wall Street" color="negative" />
+          <q-checkbox @click.native="change_checkbox()" keep-color v-model="checkbox[3]" label="Wall Street" color="negative" />
         </q-item>
       </q-list>
     </q-drawer>
@@ -92,6 +92,7 @@ export default {
     },
     search () {
       Vue.prototype.$search = this.searchModel
+      console.log(this.$search)
     }
   }
 }
